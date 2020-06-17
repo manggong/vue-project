@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input v-model="inputData" @keypress.enter="textInputted" type="text" />
+    <input class="form-control" v-model="userInput" @keypress.enter="onInput" type="text" />
   </div>
 </template>
 
@@ -9,15 +9,16 @@ export default {
   name: "SearchBar",
   data() {
     return {
-      inputData: "",
+      userInput: ""
     };
   },
   methods: {
-    textInputted() {
-      this.$emit("textInputtedInSearchBar", this.inputData);
-    },
-  },
+    onInput() {
+      this.$emit("onInput", this.userInput);
+    }
+  }
 };
 </script>
 
-<style></style>
+<style>
+</style>

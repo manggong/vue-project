@@ -1,24 +1,21 @@
 <template>
-  <div id="playerDiv" v-if="results.length > 0">
+  <div class="embed-responsive embed-responsive-16by9" v-if="video">
     <iframe
-      width="560"
-      height="315"
-      :src="`https://www.youtube.com/embed/${results[0].id.videoId}`"
+      class="embed-responsive-item"
+      :src="`https://www.youtube.com/embed/${video.id.videoId}`"
     ></iframe>
   </div>
 </template>
 
 <script>
+``;
 export default {
   name: "VideoPlayer",
   props: {
-    results: Array,
-  },
+    video: Object
+  }
 };
 </script>
 
 <style>
-#playerDiv {
-  margin-left: 100px;
-}
 </style>

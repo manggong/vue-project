@@ -1,25 +1,23 @@
 <template>
   <div>
-    <img
-      class="myimg"
-      v-for="result in results"
-      :key="result.id.videoId"
-      :src="result.snippet.thumbnails.default.url"
-    />
+    <img :src="video.snippet.thumbnails.default.url" @click="imgClicked" />
+    <h5>{{ video.snippet.title }}</h5>
   </div>
 </template>
 
 <script>
 export default {
-  name: "VidoeItem",
+  name: "VideoItem",
   props: {
-    results: Array,
+    video: Object
   },
+  methods: {
+    imgClicked() {
+      this.$emit("imgClicked", this.video);
+    }
+  }
 };
 </script>
 
 <style>
-.myimg {
-  display: block;
-}
 </style>
