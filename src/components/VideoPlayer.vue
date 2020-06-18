@@ -1,21 +1,20 @@
 <template>
-  <div class="embed-responsive embed-responsive-16by9" v-if="video">
+  <div class="embed-responsive embed-responsive-16by9" v-if="selectedVideo">
     <iframe
       class="embed-responsive-item"
-      :src="`https://www.youtube.com/embed/${video.id.videoId}`"
+      :src="`https://www.youtube.com/embed/${selectedVideo.id.videoId}`"
     ></iframe>
   </div>
 </template>
 
 <script>
-``;
+import { mapGetters } from "vuex";
 export default {
   name: "VideoPlayer",
-  props: {
-    video: Object
-  }
+  computed: {
+    ...mapGetters(["selectedVideo"]),
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>
